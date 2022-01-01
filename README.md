@@ -21,4 +21,9 @@ THEN I am again presented with current and future conditions for that city
 
 ## Pseudocode
 
-
+1. Get layout for page design
+ 1a. Overall layout from Bootstrap? Jquery?
+ 1b. Review each element on the page and find Jquery UI widgets?
+2. Link all necessary scripts/stylesheets
+  2a. openweathermap.org (have account set up and API key in e-mail)
+  2b. jquery? bootstrap?
