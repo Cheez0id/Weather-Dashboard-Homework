@@ -1,0 +1,32 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  color: #c4c9f6;
+  text-align: center;
+  scroll-behavior: smooth;
+  background-color: black;
+  }
+
+  .centercontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-size: 110%;
+}
+
+.largerfont {
+  font-size: 200%;
+}
+
+.headerbox {   
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;  
+  margin-top: 100px;
+  width: 75%;
+  border: 5px solid rgb(83, 52, 133);
+  border-radius: 5%;
+  font-size: 150%;
+  padding: 25px;
+  }
