@@ -1,15 +1,30 @@
 var APIKey = "66e0e6cbc1682477b1950be5f8d0cbc0";
-var city="atlanta";
+var city = document.getElementById("city");
+var cityResult = document.getElementById("result");
 
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={APIkey}
 
 var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+//a function that when called will run a query on weather API
+function fetchWeather1() {
+  fetch(queryURL)
+  .then(function (response) {
+  return response.json();
+})
+.then(function (data) {
+  console.log("hello, below you'll find the url");
+  console.log(data);
+  for (var i = 0; i <= data.length; i++) 
+  {
+    console.log(data[i]);
+  var cityResult = document.createElement("p");
+				cityResult.textContent = (data[i]);
+        result.append(cityResult);
+      }
+});
+}
 
-fetch(queryURL);
-
-console.log (queryURL);
+fetchWeather1()
 
 //write an event listener and a query selector (the event listener will have a function inside of it) set a variable listening to that whole form
-addEventListener("submit",function(){
-
-})
+// addEventListener("submit",function(){}
