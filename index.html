@@ -5,6 +5,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Weather Dashboard</title>
+		<script src ="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme:{}
+				extend:{}
+				colors:{}
+				clifford:{}
+			}
+		</script>
 		<link rel="stylesheet" href="assets/css/style.css" />
 	</head>
 
@@ -18,6 +27,7 @@
 			<form>
 				<label for="City">city</label>
 				<input type="text" id="city" value="Atlanta">
+				<button id="searchButton">Click to Search</button>
 			</form>
 			<div id="result"></div>
 		</div>

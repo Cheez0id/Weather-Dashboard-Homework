@@ -24,8 +24,13 @@ function fetchWeather1() {
       }
 });
 }
-
-fetchWeather1()
+//Added a search Button to run the function on click
+document.getElementById("searchButton").addEventListener("click", function (event) {
+  event.preventDefault();
+	console.log("you typed something in");
+	fetchWeather1();
+});
+fetchWeather1();
 
 //write an event listener and a query selector (the event listener will have a function inside of it) set a variable listening to that whole form
 // addEventListener("submit",function(){}
