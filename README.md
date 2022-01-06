@@ -1,4 +1,6 @@
 # Weather-Dashboard-Homework
+January 5 2021 test note
+this is a new note to test as well
 
 ## Homework
 Create a browser app weather dashboard using third-party APIs to complete below acceptance criteria.
