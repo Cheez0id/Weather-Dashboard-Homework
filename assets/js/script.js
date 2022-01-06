@@ -3,8 +3,9 @@ var city = document.getElementById("city");
 var cityResult = document.getElementById("result");
 
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={APIkey}
+console.log(city.value);
 
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city.value + "&appid=" + APIKey;
 //a function that when called will run a query on weather API
 function fetchWeather1() {
   fetch(queryURL)
