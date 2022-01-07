@@ -17,17 +17,47 @@
 </html>
 
 	<body class="bg-sky-900 text-indigo-400 font-mono text-xl">
+		<!-- HEADER-->
 		<div>
-			<header class="text-5xl px-6 pt-10 pb-8 shadow-xl sm:max-w-3xl sm:mx-auto  my-7">
+			<header class="text-5xl px-6 pt-10 pb-8 shadow-xl sm:max-w-3xl sm:mx-auto  my-7 centerText">
 				<h1>Weather Dashboard</h1>
 			</header>
 		</div>
-
-		<div class="px-6 pt-10 pb-8 bg-teal-50 shadow-xl ring-1 ring-gray-900/5 sm:max-w-lg sm:mx-auto sm:rounded-lg sm:px-10">
-			<div class="text-3xl">
-				<h1>Weather Search</h1>
+<!-- PAGE ELEMENTS -->
+		<div class="flex flex-wrap w-5/6 px-6 py-10 bg-teal-50 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:rounded-lg sm:px-10">
+			<div class="box w-1/2">
+				<div class="text-3xl">
+					<h1>Search by City</h1>
+				</div>
+				<form id="searchForm">
+					<label for="City"></label>
+					<input type="text" class="
+					border-4 border-teal-400				
+					hover:bg-teal-50 shadow-xl my-3" id="city" value="" />
+					<button class="bg-teal-400 hover:bg-teal-300 text-white font-bold py-2 px-4 rounded shadow-xl">Search</button>
+				</form>
 			</div>
-			<div>
+
+			<div class="box">
+				<form id="searchForm">
+					<label for="City">city</label>
+					<input type="text" class="
+					border-4 border-teal-400				
+					hover:bg-teal-50 shadow-xl my-3" id="city" value="" />
+					<button class="bg-teal-400 hover:bg-teal-300 text-white font-bold py-2 px-4 rounded shadow-xl">Search</button>
+				</form>
+			</div>
+
+			<div class="box">
+				<form id="searchForm">
+					<label for="City">city</label>
+					<input type="text" class="
+					border-4 border-teal-400				
+					hover:bg-teal-50 shadow-xl my-3" id="city" value="" />
+					<button class="bg-teal-400 hover:bg-teal-300 text-white font-bold py-2 px-4 rounded shadow-xl">Search</button>
+				</form>
+			</div>
+
 			<div class="box">
 				<form id="searchForm">
 					<label for="City">city</label>
@@ -38,9 +68,18 @@
 				</form>
 			</div>
 			</div>
+	
 
-			<div id="result"></div>
+		<div id="result">
+			<div class="box">
+					<label for="City">city</label>
+					<input type="text" class="
+					border-4 border-teal-400				
+					hover:bg-teal-50 shadow-xl my-3" id="city" value="" />
+					<button class="bg-teal-400 hover:bg-teal-300 text-white font-bold py-2 px-4 rounded shadow-xl">Search</button>
+			</div>
 		</div>
+
 	<footer>
 		<li>Brought to you by Mary! 2021</li>
 	</footer>

@@ -1,19 +1,19 @@
 * {
 	font-family: "Courier New", Courier, monospace;
 	color: #c4c9f6;
-	text-align: center;
 	flex: auto;
 }
 
-
+.centerText{
+	text-align: center;
+}
 
 
 .box {
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 25px;
+	margin-right: 25px;
 	margin-top: 25px;
 	margin-bottom: 10px;
-	width: 100%;
 	border: 5px solid rgb(83, 52, 133);
 	border-radius: 5%;
 	font-size: 150%;
