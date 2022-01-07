@@ -18,30 +18,34 @@
 
 	<body class="bg-sky-900 text-indigo-400 font-mono text-xl">
 		<div>
-			<header class="text-5xl">
+			<header class="text-5xl px-6 pt-10 pb-8 shadow-xl sm:max-w-3xl sm:mx-auto  my-7">
 				<h1>Weather Dashboard</h1>
 			</header>
 		</div>
-		<div>
-			<div>
-				<h1>Weather Dashboard</h1>
+
+		<div class="px-6 pt-10 pb-8 bg-teal-50 shadow-xl ring-1 ring-gray-900/5 sm:max-w-lg sm:mx-auto sm:rounded-lg sm:px-10">
+			<div class="text-3xl">
+				<h1>Weather Search</h1>
 			</div>
+			<div>
 			<div class="box">
 				<form id="searchForm">
 					<label for="City">city</label>
-					<input type="text" id="city" value="" />
-					<button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Search</button>
+					<input type="text" class="
+					border-4 border-teal-400				
+					hover:bg-teal-50 shadow-xl my-3" id="city" value="" />
+					<button class="bg-teal-400 hover:bg-teal-300 text-white font-bold py-2 px-4 rounded shadow-xl">Search</button>
 				</form>
+			</div>
 			</div>
 
 			<div id="result"></div>
 		</div>
-		<footer>
-			<li>Brought to you by Mary! 2021</li>
-		</footer>
+	<footer>
+		<li>Brought to you by Mary! 2021</li>
+	</footer>
 
-		<script src="script.js"></script>
-
+	<script src="script.js"></script>
 
 	</body>
 </html>
