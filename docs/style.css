@@ -1,6 +1,5 @@
 * {
 	font-family: "Courier New", Courier, monospace;
-	color: #c4c9f6;
 	flex: auto;
 }
 
@@ -15,7 +14,7 @@
 	margin-top: 25px;
 	margin-bottom: 10px;
 	border: 5px solid rgb(83, 52, 133);
-	border-radius: 5%;
+	border-radius: 8%;
 	font-size: 150%;
 	padding: 25px;
 }
