@@ -1,0 +1,23 @@
+{
+  "name": "weather-dashboard-homework",
+  "version": "1.0.0",
+  "description": "January 5 2021 test note this is a new note to test as well",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build source/styles.css -o public/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cheez0id/Weather-Dashboard-Homework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cheez0id/Weather-Dashboard-Homework/issues"
+  },
+  "homepage": "https://github.com/Cheez0id/Weather-Dashboard-Homework#readme",
+  "dependencies": {
+    "tailwindcss": "^3.0.11"
+  }
+}
