@@ -4,7 +4,7 @@
   "description": "January 5 2021 test note this is a new note to test as well",
   "main": "index.js",
   "scripts": {
-    "build-css": "tailwindcss build source/styles.css -o public/styles.css"
+    "build-css": "tailwindcss build source/styles.css -o docs/styles.css"
   },
   "repository": {
     "type": "git",

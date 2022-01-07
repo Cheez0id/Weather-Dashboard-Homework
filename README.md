@@ -74,4 +74,6 @@ THEN I am again presented with current and future conditions for that city
 
 
 ##Reference for learning/using Tailwind
-https://www.youtube.com/watch?v=bxmDnn7lrnk&ab_channel=TheNetNinja
+<https://www.youtube.com/watch?v=UBOj6rqRUME&ab_channel=TraversyMedia>
+
+<https://www.youtube.com/watch?v=bxmDnn7lrnk&ab_channel=TheNetNinja>

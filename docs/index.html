@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Weather Dashboard</title>
-		<!-- tailwind styles -->
-		<link rel="stylesheet" href="styles.css" />
-		<!-- my style.css -->
-		<!-- <link rel="stylesheet" href="style.css" /> -->
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- tailwind styles -->
+	<link rel="stylesheet" href="styles.css" />
+	<!-- my style.css -->
+	<!-- <link rel="stylesheet" href="style.css" /> -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	<title>Weather Dashboard</title>
+</head>
+<body>
+	
+</body>
+</html>
 
-	<body>
-		<header>
-			<h1>Weather Dashboard</h1>
-		</header>
-		<div class="box">
-			<h1>Weather Dashboard</h1>
-			<br />
-			<form>
-				<label for="City">city</label>
-				<input type="text" id="city" value="Atlanta">
-				<button id="searchButton">Click to Search</button>
-			</form>
+	<body class="bg-sky-900 text-indigo-400 font-mono text-xl">
+		<div>
+			<header class="text-5xl">
+				<h1>Weather Dashboard</h1>
+			</header>
+		</div>
+		<div>
+			<div>
+				<h1>Weather Dashboard</h1>
+			</div>
+			<div>
+				<form>
+					<label for="City">city</label>
+					<input type="text" id="city" value="Atlanta" />
+					<button class="bg-blue-500 text-white font-bold py-2 px-4 rounded">Search</button>
+				</form>
+			</div>
+
 			<div id="result"></div>
 		</div>
-		<footer class="largerfont p-5 text-center text-white">
+		<footer>
 			<li>Brought to you by Mary! 2021</li>
 		</footer>
 
 		<script src="/docs/script.js"></script>
+
+
 	</body>
 </html>
