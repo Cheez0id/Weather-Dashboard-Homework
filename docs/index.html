@@ -7,7 +7,7 @@
 	<!-- tailwind styles -->
 	<link rel="stylesheet" href="styles.css" />
 	<!-- my style.css -->
-	<!-- <link rel="stylesheet" href="style.css" /> -->
+	<link rel="stylesheet" href="style.css" />
 	<script src="https://cdn.tailwindcss.com"></script>
 	<title>Weather Dashboard</title>
 </head>
@@ -17,7 +17,7 @@
 </html>
 
 	<body class="bg-sky-900 text-indigo-400 font-mono text-xl">
-		<div class="mx-auto px-2">
+		<div>
 			<header class="text-5xl">
 				<h1>Weather Dashboard</h1>
 			</header>
@@ -26,11 +26,11 @@
 			<div>
 				<h1>Weather Dashboard</h1>
 			</div>
-			<div>
-				<form>
+			<div class="box">
+				<form id="searchForm">
 					<label for="City">city</label>
-					<input type="text" id="city" value="Atlanta" />
-					<button id="searchButton" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Search</button>
+					<input type="text" id="city" value="" />
+					<button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded">Search</button>
 				</form>
 			</div>
 
