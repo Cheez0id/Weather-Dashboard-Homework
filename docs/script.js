@@ -2,7 +2,6 @@ var APIKey = "66e0e6cbc1682477b1950be5f8d0cbc0";
 var currentWeatherResult = document.getElementById("currentWeather");
 var dayToday = moment().format("dddd, MMMM Do YYYY");
 
-
 // city.value="Atlanta";
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={APIkey}
 // console.log(city.value);
@@ -18,21 +17,51 @@ function fetchWeather1() {
 	// city=document.querySelector("#city").value
 	fetch(queryURL)
 		.then(function (response) {
+      if (response.status === 404){console.log("404 problem");
+      var queryError = document.createElement("p");
+      queryError.textContent="NO CITY FOUND BY THAT NAME, PLEASE TRY AGAIN.";
+      currentWeatherResult.append(queryError)
+    }
 			return response.json();
 		})
 		.then(function (data) {
-			console.log("hello, below you'll find the url");
 			console.log(data);
 			var queryResult = document.createElement("textarea");
 			nameData = data.name;
-      dateData = dayToday;
-      conditionIconData = data.weather[0].main + ", " + data.weather[0]. description + " " + data.weather[0].icon;
-      temperatureData = data.main.temp;
-      humidityData = data.main.humidity;
-      windSpeedData = "\n" + data.wind.speed +"\n"+ data.wind.deg +"\n"+ data.wind.gust;
-      uvData = "UV";
+			dateData = dayToday;
+			conditionIconData =
+				data.weather[0].main +
+				", " +
+				data.weather[0].description +
+				" " +
+				data.weather[0].icon;
+			temperatureData = data.main.temp;
+			humidityData = data.main.humidity;
+			windSpeedData =
+				"\n" + data.wind.speed + "\n" + data.wind.deg + "\n" + data.wind.gust;
+			uvData = "UV";
 			queryResult.setAttribute("class", "weatherCurrent");
-			queryResult.textContent = "City: " + nameData + "\n" + "Date: " + dateData + "\n" + "Conditions: " + conditionIconData + "\n" + "Temp: " + temperatureData + "\n" + "Humidity: " + humidityData + "\n" + "Wind Conditions: " + windSpeedData + "\n" + "UV: " + uvData;
+			queryResult.textContent =
+				"City: " +
+				nameData +
+				"\n" +
+				"Date: " +
+				dateData +
+				"\n" +
+				"Conditions: " +
+				conditionIconData +
+				"\n" +
+				"Temp: " +
+				temperatureData +
+				"\n" +
+				"Humidity: " +
+				humidityData +
+				"\n" +
+				"Wind Conditions: " +
+				windSpeedData +
+				"\n" +
+				"UV: " +
+				uvData;
 			currentWeatherResult.append(queryResult);
 			console.log(queryResult);
 			// for (var i = 0; i <= data.length; i++) {
