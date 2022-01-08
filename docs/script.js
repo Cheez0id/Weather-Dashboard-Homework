@@ -23,16 +23,16 @@ function fetchWeather1() {
 		.then(function (data) {
 			console.log("hello, below you'll find the url");
 			console.log(data);
-			var queryResult = document.createElement("p");
+			var queryResult = document.createElement("textarea");
 			nameData = data.name;
       dateData = dayToday;
       conditionIconData = data.weather[0].main + ", " + data.weather[0]. description + " " + data.weather[0].icon;
       temperatureData = data.main.temp;
-      humidityData = "humidity";
-      windSpeedData = data.wind.speed + data.wind.deg + data.wind.gust;
+      humidityData = data.main.humidity;
+      windSpeedData = "\n" + data.wind.speed +"\n"+ data.wind.deg +"\n"+ data.wind.gust;
       uvData = "UV";
 			queryResult.setAttribute("class", "weatherCurrent");
-			queryResult.textContent = "City: " + nameData + "\r\n" +" Date: " + dateData + " Conditions: " + conditionIconData + " Temp: " + temperatureData + " Humidity: " + humidityData + " Wind Conditions: " + windSpeedData + " UV: " + uvData;
+			queryResult.textContent = "City: " + nameData + "\n" + "Date: " + dateData + "\n" + "Conditions: " + conditionIconData + "\n" + "Temp: " + temperatureData + "\n" + "Humidity: " + humidityData + "\n" + "Wind Conditions: " + windSpeedData + "\n" + "UV: " + uvData;
 			currentWeatherResult.append(queryResult);
 			console.log(queryResult);
 			// for (var i = 0; i <= data.length; i++) {
