@@ -1,5 +1,7 @@
 var APIKey = "66e0e6cbc1682477b1950be5f8d0cbc0";
 var currentWeatherResult = document.getElementById("currentWeather");
+var dayToday = moment().format("dddd, MMMM Do YYYY");
+
 
 // city.value="Atlanta";
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={APIkey}
@@ -23,14 +25,14 @@ function fetchWeather1() {
 			console.log(data);
 			var queryResult = document.createElement("p");
 			nameData = data.name;
-      dateData = "date";
-      conditionIconData = "conditions";
+      dateData = dayToday;
+      conditionIconData = data.weather[0].main + ", " + data.weather[0]. description + " " + data.weather[0].icon;
       temperatureData = data.main.temp;
       humidityData = "humidity";
       windSpeedData = data.wind.speed + data.wind.deg + data.wind.gust;
       uvData = "UV";
 			queryResult.setAttribute("class", "weatherCurrent");
-			queryResult.textContent = "City: " + nameData + " Date: " + dateData + " Conditions: " + conditionIconData + " Temp: " + temperatureData + " Humidity: " + humidityData + " Wind Conditions: " + windSpeedData + " UV: " + uvData;
+			queryResult.textContent = "City: " + nameData + "\r\n" +" Date: " + dateData + " Conditions: " + conditionIconData + " Temp: " + temperatureData + " Humidity: " + humidityData + " Wind Conditions: " + windSpeedData + " UV: " + uvData;
 			currentWeatherResult.append(queryResult);
 			console.log(queryResult);
 			// for (var i = 0; i <= data.length; i++) {
