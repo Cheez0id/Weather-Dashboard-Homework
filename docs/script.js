@@ -16,11 +16,14 @@ function fetchWeather1() {
 	// city=document.querySelector("#city").value
 	fetch(queryURL)
 		.then(function (response) {
-      if (response.status === 404 || 400){console.log("404 problem");
+      if (response.status === 404){console.log("404 problem");
       var queryError = document.createElement("p");
       queryError.textContent="NO CITY FOUND BY THAT NAME, PLEASE TRY AGAIN.";
       currentWeatherResult.append(queryError)
     }
+    else if (city === ""){var queryError = document.createElement("p");
+    queryError.textContent="NO CITY FOUND BY THAT NAME, PLEASE TRY AGAIN.";
+    currentWeatherResult.append(queryError)}
 			return response.json();
 		})
 		.then(function (data) {
@@ -76,8 +79,8 @@ function fetchWeather1() {
 
 //Added a search Button to run the function on click
 document
-	.getElementById("searchForm")
-	.addEventListener("submit", function (event) {
+	.getElementById("search")
+	.addEventListener("click", function (event) {
 		event.preventDefault();
 		console.log("you submitted on the form");
 		fetchWeather1();
