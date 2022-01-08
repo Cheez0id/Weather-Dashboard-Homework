@@ -26,18 +26,21 @@ function fetchWeather1() {
 		.then(function (data) {
 			console.log(data);
 			var queryResult = document.createElement("textarea");
-			nameData = data.name;
+      //TODO: make the weather icons work - https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2 
+      iconImage = document.createElement("img");
+      nameData = data.name;
 			dateData = dayToday;
 			conditionIconData =
 				data.weather[0].main +
 				", " +
 				data.weather[0].description +
 				" " +
-				data.weather[0].icon;
+				data.weather[0].icon + iconImage;
 			temperatureData = data.main.temp;
 			humidityData = data.main.humidity;
 			windSpeedData =
 				"\n  Speed: " + data.wind.speed + "\n  Deg: " + data.wind.deg + "\n  Gust: " + data.wind.gust;
+      //TODO: figure out how to find and calculate/display UV information  
 			uvData = "UV";
 			queryResult.setAttribute("class", "weatherCurrent");
 			queryResult.textContent =
@@ -52,10 +55,10 @@ function fetchWeather1() {
 				"\n" +
 				"Temp: " +
 				temperatureData +
-				"\n" +
+				" F\n" +
 				"Humidity: " +
 				humidityData +
-				"\n" +
+				"%\n" +
 				"Wind Conditions: " +
 				windSpeedData +
 				"\n" +
