@@ -23,8 +23,14 @@ function fetchWeather1() {
 			console.log(data);
 			var queryResult = document.createElement("p");
 			nameData = data.name;
+      dateData = "date";
+      conditionIconData = "conditions";
+      temperatureData = data.main.temp;
+      humidityData = "humidity";
+      windSpeedData = data.wind.speed + data.wind.deg + data.wind.gust;
+      uvData = "UV";
 			queryResult.setAttribute("class", "weatherCurrent");
-			queryResult.textContent = nameData;
+			queryResult.textContent = "City: " + nameData + " Date: " + dateData + " Conditions: " + conditionIconData + " Temp: " + temperatureData + " Humidity: " + humidityData + " Wind Conditions: " + windSpeedData + " UV: " + uvData;
 			currentWeatherResult.append(queryResult);
 			console.log(queryResult);
 			// for (var i = 0; i <= data.length; i++) {
