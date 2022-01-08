@@ -10,8 +10,7 @@ var dayToday = moment().format("dddd, MMMM Do YYYY");
 function fetchWeather1() {
 	var city = document.getElementById("city").value;
 	var queryURL =
-		"http://api.openweathermap.org/data/2.5/weather?q=" +
-		city +
+		"http://api.openweathermap.org/data/2.5/weather?q=" + city +"&units=imperial" +
 		"&appid=" +
 		APIKey;
 	// city=document.querySelector("#city").value
@@ -38,7 +37,7 @@ function fetchWeather1() {
 			temperatureData = data.main.temp;
 			humidityData = data.main.humidity;
 			windSpeedData =
-				"\n" + data.wind.speed + "\n" + data.wind.deg + "\n" + data.wind.gust;
+				"\n  Speed: " + data.wind.speed + "\n  Deg: " + data.wind.deg + "\n  Gust: " + data.wind.gust;
 			uvData = "UV";
 			queryResult.setAttribute("class", "weatherCurrent");
 			queryResult.textContent =
