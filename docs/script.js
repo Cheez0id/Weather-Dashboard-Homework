@@ -77,6 +77,20 @@ function fetchWeather1() {
 		});
 }
 
+
+function fetchWeather2() {
+	var city = document.getElementById("city").value;
+	var queryURL =
+		"http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city +"&cnt=5" +"&units=imperial" +
+		"&appid=" +
+		APIKey;
+	// city=document.querySelector("#city").value
+	fetch(queryURL)
+		.then(function (response) {
+      console.log("working on 5 day forecast function and also mary is awesome")
+    });
+  }
+
 //Added a search Button to run the function on click
 document
 	.getElementById("search")
@@ -84,6 +98,7 @@ document
 		event.preventDefault();
 		console.log("you submitted on the form");
 		fetchWeather1();
+    fetchWeather2();
 	});
 
 //write an event listener and a query selector (the event listener will have a function inside of it) set a variable listening to that whole form
