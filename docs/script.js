@@ -13,7 +13,6 @@ function fetchWeather1() {
 		"http://api.openweathermap.org/data/2.5/weather?q=" + city +"&units=imperial" +
 		"&appid=" +
 		APIKey;
-	// city=document.querySelector("#city").value
 	fetch(queryURL)
 		.then(function (response) {
       if (response.status === 404){console.log("404 problem");
@@ -80,12 +79,11 @@ function fetchWeather1() {
 
 function fetchWeather2() {
 	var city = document.getElementById("city").value;
-	var queryURL =
-		"http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city +"&cnt=5" +"&units=imperial" +
+	var queryURL5 =
+		"http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city +"&cnt=5" +
 		"&appid=" +
 		APIKey;
-	// city=document.querySelector("#city").value
-	fetch(queryURL)
+	fetch(queryURL5)
 		.then(function (response) {
       console.log("working on 5 day forecast function and also mary is awesome")
     });
