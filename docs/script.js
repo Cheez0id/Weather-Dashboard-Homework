@@ -1,4 +1,7 @@
 var APIKey = "66e0e6cbc1682477b1950be5f8d0cbc0";
+//TODO:Second API key was generated for second function, but 401 error (http://openweathermap.org/faq#error401)
+var APIKey2 = "d0b186f2faa3501d4dd89f66a5cdf85f";
+
 var currentWeatherResult = document.getElementById("currentWeather");
 var dayToday = moment().format("dddd, MMMM Do YYYY");
 
@@ -26,8 +29,7 @@ function fetchWeather1() {
 			return response.json();
 		})
 		.then(function (data) {
-			console.log(data);
-			var queryResult = document.createElement("textarea");
+		var queryResult = document.createElement("textarea");
       //TODO: make the weather icons work - https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2 
       iconImage = document.createElement("img");
       nameData = data.name;
@@ -82,10 +84,14 @@ function fetchWeather2() {
 	var queryURL5 =
 		"http://api.openweathermap.org/data/2.5/forecast/daily?q=" + city +"&cnt=5" +
 		"&appid=" +
-		APIKey;
+		APIKey2;
 	fetch(queryURL5)
-		.then(function (response) {
-      console.log("working on 5 day forecast function and also mary is awesome")
+  		.then(function (response) {
+      console.log("working on 5 day forecast function and also mary is awesome");
+      return response.json();
+		})
+		.then(function (data) {
+			console.log(data);
     });
   }
 
