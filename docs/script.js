@@ -16,7 +16,7 @@ function fetchWeather1() {
 	// city=document.querySelector("#city").value
 	fetch(queryURL)
 		.then(function (response) {
-      if (response.status === 404){console.log("404 problem");
+      if (response.status === 404 || 400){console.log("404 problem");
       var queryError = document.createElement("p");
       queryError.textContent="NO CITY FOUND BY THAT NAME, PLEASE TRY AGAIN.";
       currentWeatherResult.append(queryError)
