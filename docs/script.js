@@ -13,7 +13,7 @@ var dayToday = moment().format("dddd, MMMM Do YYYY");
 function fetchWeather1() {
 	var city = document.getElementById("city").value;
 	var queryURL =
-		"http://api.openweathermap.org/data/2.5/weather?q=" + city +"&units=imperial" +
+		"https://api.openweathermap.org/data/2.5/weather?q=" + city +"&units=imperial" +
 		"&appid=" +
 		APIKey;
 	fetch(queryURL)
