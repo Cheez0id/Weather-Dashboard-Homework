@@ -3,6 +3,12 @@ var APIKey = "66e0e6cbc1682477b1950be5f8d0cbc0";
 var APIKey2 = "d0b186f2faa3501d4dd89f66a5cdf85f";
 
 var currentWeatherResult = document.getElementById("currentWeather");
+var tomorrowResult = document.getElementById("tomorrowcard");
+var day1result = document.getElementById("day1card");
+var day2result = document.getElementById("day2card");
+var day3result = document.getElementById("day3card");
+var day4result = document.getElementById("day4card");
+
 var coordHider = document.getElementById("invisibleData");
 var dayToday = moment().format("dddd, MMMM Do YYYY");
 
@@ -86,7 +92,7 @@ function fetchWeather1() {
 			currentWeatherResult.append(queryResult);
 			console.log(latData + "&lon=" + lonData + " " + city);
 			//trying to make coordinates pull from data usable to other function
-			//original plan was to use local
+			//original plan was to use local storage
 			cityCoordinates = latData + "&lon=" + lonData;
 			localStorage.setItem("coordinates", cityCoordinates);
 			//new plan to make an element to pull form
@@ -98,17 +104,16 @@ function fetchWeather1() {
 		});
 }
 
+//A function to take the lat/long data that was saved on the page to put it into a OneCall function to try to get daily weather
 function fetchWeather2() {
 	// var cityCoord = localStorage.getItem("coordinates"); THIS IS WHERE I AM STUCK; TRYING TO GRAB INNERTEXTVALUE
 	var cityCoord = document.getElementsByClassName("coordText");
-	var coordText = cityCoord.innerText;
 	console.log(cityCoord);
-	console.log(coordText);
-
+	//  console.log(cityCoord.div.coordText.length);
+	//TODO: Do I really have to make the lat/long 00.00 vs 00.0000??
+	//  placeholderCoord = "39.7392&lon=-104.9847";
 	var queryOneCallUrl =
-		"https://api.openweathermap.org/data/2.5/onecall?lat=" +
-		cityCoord +
-		"&exclude=hourly&appid=" +
+		"https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly&appid=" +
 		APIKey2;
 	fetch(queryOneCallUrl)
 		.then(function (response) {
@@ -116,7 +121,103 @@ function fetchWeather2() {
 			return response.json();
 		})
 		.then(function (data) {
-			console.log(data);
+			console.log(data.daily[0]);
+			//MARY WHY DONT YOU JUST MAKE A FOR LOOP FOR THESE?
+			var day0 = document.createElement("textarea");
+			day0.setAttribute("class", "day0result");
+			day0.textContent =
+				"Tomorrow" +
+				"\n" +
+				"Temp: " +
+				data.daily[0].temp.day +
+				" F\n" +
+				"Conditions: " +
+				data.daily[0].weather[0].description +
+				"\n" +
+				"Humidity: " +
+				data.daily[0].humidity +
+				"%\n";
+			tomorrowResult.append(day0);
+
+			var day1 = document.createElement("textarea");
+			day1.setAttribute("class", "day1result");
+			day1.textContent =
+			"day after tomorrow: " +
+			"\n" +
+			"Temp: " +
+			data.daily[1].temp.day +
+			" F\n" +
+			"Conditions: " +
+			data.daily[1].weather[0].description +
+			"\n" +
+			"Humidity: " +
+			data.daily[1].humidity +
+			"%\n";
+			day1result.append(day1);
+
+			var day2 = document.createElement("textarea");
+			day2.setAttribute("class", "day1result");
+			day2.textContent =
+			"2nd day after tomorrow: " +
+			"\n" +
+			"Temp: " +
+			data.daily[2].temp.day +
+			" F\n" +
+			"Conditions: " +
+			data.daily[2].weather[0].description +
+			"\n" +
+			"Humidity: " +
+			data.daily[2].humidity +
+			"%\n";
+			day2result.append(day2);
+
+			var day3 = document.createElement("textarea");
+			day3.setAttribute("class", "day1result");
+			day3.textContent =
+			"3rd day after tomorrow: " +
+			"\n" +
+			"Temp: " +
+			data.daily[3].temp.day +
+			" F\n" +
+			"Conditions: " +
+			data.daily[3].weather[0].description +
+			"\n" +
+			"Humidity: " +
+			data.daily[3].humidity +
+			"%\n";
+			day3result.append(day3);
+
+			var day4 = document.createElement("textarea");
+			day4.setAttribute("class", "day1result");
+			day4.textContent =
+			"4th day after tomorrow: " +
+			"\n" +
+			"Temp: " +
+			data.daily[4].temp.day +
+			" F\n" +
+			"Conditions: " +
+			data.daily[4].weather[0].description +
+			"\n" +
+			"Humidity: " +
+			data.daily[4].humidity +
+			"%\n";
+			day4result.append(day4);
+			
+			var day5 = document.createElement("textarea");
+			day5.setAttribute("class", "day1result");
+			day5.textContent =
+			"5th day after tomorrow: " +
+			"\n" +
+			"Temp: " +
+			data.daily[5].temp.day +
+			" F\n" +
+			"Conditions: " +
+			data.daily[5].weather[0].description +
+			"\n" +
+			"Humidity: " +
+			data.daily[5].humidity +
+			"%\n";
+			day5result.append(day5);
 		});
 }
 
