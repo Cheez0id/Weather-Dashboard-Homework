@@ -114,7 +114,7 @@ function fetchWeather2() {
 	var city = document.getElementById("city").value;
 	var queryForecastURL =
 		"https://api.openweathermap.org/data/2.5/forecast?q=" +
-		city +
+		city +"&units=imperial"+
 		"&appid=" +
 		APIKey2;
 	fetch(queryForecastURL)
