@@ -1,21 +1,16 @@
 var APIKey = "66e0e6cbc1682477b1950be5f8d0cbc0";
-//TODO:Second API key was generated for second function, but 401 error (http://openweathermap.org/faq#error401)
 var APIKey2 = "d0b186f2faa3501d4dd89f66a5cdf85f";
 
 var currentWeatherResult = document.getElementById("currentWeather");
 var tomorrowResult = document.getElementById("tomorrowcard");
-var day1result = document.getElementById("day1card");
-var day2result = document.getElementById("day2card");
 var day3result = document.getElementById("day3card");
 var day4result = document.getElementById("day4card");
+var day5result = document.getElementById("day5card");
+var day6result = document.getElementById("day6card");
 
 var coordHider = document.getElementById("invisibleData");
 var dayToday = moment().format("dddd, MMMM Do YYYY");
 var weatherIcon = document.querySelector(".weatherIcon");
-
-// city.value="Atlanta";
-// api.openweathermap.org/data/2.5/weather?q={city name}&appid={APIkey}
-// console.log(city.value);
 
 //a function that when called will run a query on weather API
 function fetchWeather1() {
@@ -27,6 +22,7 @@ function fetchWeather1() {
 		"&appid=" +
 		APIKey;
 	fetch(queryURL)
+		//Error Handling
 		.then(function (response) {
 			if (response.status === 404) {
 				console.log("404 problem");
@@ -39,9 +35,11 @@ function fetchWeather1() {
 				queryError.textContent = "NO CITY SEARCHED.";
 				currentWeatherResult.append(queryError);
 			}
+			//create json object from resonse data
 			return response.json();
 		})
 		.then(function (data) {
+			//create a <p> section for the results and append results to section
 			var queryResult = document.createElement("p");
 			iconImage = document.createElement("img");
 			iconImage.setAttribute(
@@ -49,7 +47,6 @@ function fetchWeather1() {
 				"http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
 			);
 			weatherIcon.append(iconImage);
-
 			nameData = data.name;
 			dateData = dayToday;
 			conditionIconData =
@@ -93,23 +90,12 @@ function fetchWeather1() {
 				uvData;
 			currentWeatherResult.append(queryResult);
 			console.log(latData + "&lon=" + lonData + " " + city);
-			//trying to make coordinates pull from data usable to other function
-			//original plan was to use local storage
-			cityCoordinates = latData + "&lon=" + lonData;
-			localStorage.setItem("coordinates", cityCoordinates);
-			//new plan to make an element to pull form
 		});
 }
 
-//A function to take the lat/long data that was saved on the page to put it into a OneCall function to try to get daily weather
+//A function to get 5 day forecast
 function fetchWeather2() {
-	// var cityCoord = localStorage.getItem("coordinates"); THIS IS WHERE I AM STUCK; TRYING TO GRAB INNERTEXTVALUE
 	var city = document.getElementById("city").value;
-	var cityCoord = document.getElementsByClassName("coordText");
-	console.log(cityCoord);
-	//  console.log(cityCoord.div.coordText.length);
-	//TODO: Do I really have to make the lat/long 00.00 vs 00.0000??
-	//  placeholderCoord = "39.7392&lon=-104.9847";
 	var queryOneCallUrl =
 		"https://api.openweathermap.org/data/2.5/forecast?q=" +
 		city +
@@ -125,7 +111,7 @@ function fetchWeather2() {
 			console.log(window.latData);
 			console.log(window.lonData);
 
-			// console.log(data.daily[0]);
+			//create <p> sections for the results and append results to the sections
 			//MARY WHY DONT YOU JUST MAKE A FOR LOOP FOR THESE?
 			var day0 = document.createElement("p");
 			day0.setAttribute("class", "day0result");
@@ -157,7 +143,7 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[1].main.humidity +
 				"%<br>";
-			day1result.append(day1);
+			day3result.append(day1);
 
 			var day2 = document.createElement("p");
 			day2.setAttribute("class", "day0result");
@@ -173,7 +159,7 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[2].main.humidity +
 				"%<br>";
-			day2result.append(day2);
+			day4result.append(day2);
 
 			var day3 = document.createElement("p");
 			day3.setAttribute("class", "day0result");
@@ -189,7 +175,7 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[3].main.humidity +
 				"%<br>";
-			day3result.append(day3);
+			day5result.append(day3);
 
 			var day4 = document.createElement("p");
 			day4.setAttribute("class", "day0result");
@@ -205,7 +191,7 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[4].main.humidity +
 				"%<br>";
-			day4result.append(day4);
+			day6result.append(day4);
 		});
 }
 
