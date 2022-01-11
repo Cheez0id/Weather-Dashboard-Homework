@@ -108,22 +108,24 @@ function fetchWeather1() {
 			if (window.uvi === undefined) {
 					currentWeatherResult.append("UV: " + "UV Not Found");
 			}
-				//TODO trying to set UV color classes - 
-				var hello = document.getElementById("uvInfo");
 			if (window.uvi === undefined) {
-			//TODO trying to set UV color classes - 
 			document.getElementById("uvInfo").classList.add('grey');
-			//the class is being added, but why is the color not changing? perhaps the page needs to refresh
-		console.log (hello);
 			}
-			// else
-			// currentWeatherResult.append("UV: " + window.uvi);
-			// iconImage = document.createElement("img");
-			// iconImage.setAttribute(
-			// 	"src",
-			// 	"http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
-			// );
-			// weatherIcon.append(iconImage);
+			if (window.uvi === ["0","1","2"]) {
+				document.getElementById("uvInfo").classList.add('green');	
+			}
+			if (window.uvi === ["3","4","5"]) {
+				document.getElementById("uvInfo").classList.add('yellow');	
+			}
+			if (window.uvi === ["6","7"]) {
+				document.getElementById("uvInfo").classList.add('orange');	
+			}
+			if (window.uvi === ["8","9","10"]) {
+				document.getElementById("uvInfo").classList.add('red');	
+			}
+			if (window.uvi === ["11","12","13"]) {
+				document.getElementById("uvInfo").classList.add('black');	
+			}
 		});
 }
 
