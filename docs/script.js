@@ -103,13 +103,17 @@ function fetchWeather1() {
 						window.uvi = uvData.current.uvi.toString();
 					});
 			}
-			//if statement for undefined error handling
 			fetchWeather3();
-			var UVNo = document.getElementsByName("uvInfo");
+			//if statement for undefined error handling
+			if (window.uvi === undefined) {
+					currentWeatherResult.append("UV: " + "UV Not Found");
+			}
+				//TODO trying to set UV color classes - 
+				var hello = document.getElementById("uvInfo");
 			if (window.uvi === undefined) {
 			//TODO trying to set UV color classes - 
-			currentWeatherResult.append("UV: " + "UV Not Found")
-			UVNo.setAttribute ("class", "red");
+			document.getElementById("uvInfo").classList.add('grey');
+		console.log (hello);
 			}
 			// else
 			// currentWeatherResult.append("UV: " + window.uvi);
