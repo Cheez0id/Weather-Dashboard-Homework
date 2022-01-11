@@ -41,6 +41,7 @@ function fetchWeather1() {
 		.then(function (data) {
 			//create a <p> section for the results and append results to section
 			var queryResult = document.createElement("p");
+			
 			iconImage = document.createElement("img");
 			iconImage.setAttribute(
 				"src",
@@ -60,10 +61,11 @@ function fetchWeather1() {
 				data.wind.deg +
 				", Gust: " +
 				data.wind.gust;
-			//TODO: figure out how to find and calculate/display UV information
+			//TODO: figure out how to FIX UV
 			window.latData = data.coord.lat;
 			window.lonData = data.coord.lon;
 			queryResult.setAttribute("class", "weatherCurrent");
+			queryResult.setAttribute("class", "font-bold");
 			queryResult.innerHTML =
 				"City: " +
 				//think about adding state and zip?
@@ -151,9 +153,29 @@ function fetchWeather2() {
 			//TODO: get the correct days instead of the times from the data
 			var day0 = document.createElement("p");
 			iconImage2 = document.createElement("img");
+			iconImage3 = document.createElement("img");
+			iconImage4 = document.createElement("img");
+			iconImage5 = document.createElement("img");
+			iconImage6 = document.createElement("img");
 			iconImage2.setAttribute(
 				"src",
 				"http://openweathermap.org/img/wn/" + data2.list[11].weather[0].icon + "@2x.png"
+			);
+			iconImage3.setAttribute(
+				"src",
+				"http://openweathermap.org/img/wn/" + data2.list[19].weather[0].icon + "@2x.png"
+			);
+			iconImage4.setAttribute(
+				"src",
+				"http://openweathermap.org/img/wn/" + data2.list[27].weather[0].icon + "@2x.png"
+			);
+			iconImage5.setAttribute(
+				"src",
+				"http://openweathermap.org/img/wn/" + data2.list[35].weather[0].icon + "@2x.png"
+			);
+			iconImage6.setAttribute(
+				"src",
+				"http://openweathermap.org/img/wn/" + data2.list[29].weather[0].icon + "@2x.png"
 			);
 			console.log (data2.list[11].weather[0].icon);
 			weatherIcon.append(iconImage);
@@ -189,7 +211,9 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[19].main.humidity +
 				"%<br>";
+			day3result.append(iconImage3);
 			day3result.append(day1);
+			
 
 			var day2 = document.createElement("p");
 			day2.setAttribute("class", "day0result");
@@ -206,6 +230,7 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[27].main.humidity +
 				"%<br>";
+			day4result.append(iconImage4);
 			day4result.append(day2);
 
 			var day3 = document.createElement("p");
@@ -223,6 +248,7 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[35].main.humidity +
 				"%<br>";
+			day5result.append(iconImage5);
 			day5result.append(day3);
 
 			var day4 = document.createElement("p");
@@ -239,6 +265,7 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[39].main.humidity +
 				"%<br>";
+			day6result.append(iconImage6);
 			day6result.append(day4);
 		});
 }

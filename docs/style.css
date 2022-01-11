@@ -18,6 +18,11 @@
 	padding: 25px;
 }
 
+.card {
+	background-color: rgb(25, 76, 124);
+	color: whitesmoke;
+}
+
 .grey 
 {background-color: grey;}
 .green 
