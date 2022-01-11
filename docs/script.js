@@ -61,7 +61,6 @@ function fetchWeather1() {
 				", Gust: " +
 				data.wind.gust;
 			//TODO: figure out how to find and calculate/display UV information
-			uvData = "UV";
 			window.latData = data.coord.lat;
 			window.lonData = data.coord.lon;
 			queryResult.setAttribute("class", "weatherCurrent");
@@ -85,23 +84,40 @@ function fetchWeather1() {
 				"Wind Conditions: " +
 				"<br>" +
 				windSpeedData +
-				"<br>" +
-				"UV: " +
-				uvData;
+				"<br>";
 			currentWeatherResult.append(queryResult);
-			console.log(latData + "&lon=" + lonData + " " + city);
+			function fetchWeather3() {
+				var city = document.getElementById("city").value;
+				console.log(latData + "&lon=" + lonData + " " + city);
+				fetch(
+					"https://api.openweathermap.org/data/2.5/onecall?lat=" +
+						latData +
+						"&lon=" +
+						lonData +
+						"&appid=" +
+						APIKey
+				)
+					.then((dataRes) => dataRes.json())
+					.then((uvData) => {
+						console.log(uvData.current.uvi);
+						window.uvi = uvData.current.uvi.toString();
+					});
+			}
+			//if statement for undefined error handling
+			fetchWeather3();
+			currentWeatherResult.append("UV: " + window.uvi);
 		});
 }
 
 //A function to get 5 day forecast
 function fetchWeather2() {
 	var city = document.getElementById("city").value;
-	var queryOneCallUrl =
+	var queryForecastURL =
 		"https://api.openweathermap.org/data/2.5/forecast?q=" +
 		city +
 		"&appid=" +
 		APIKey2;
-	fetch(queryOneCallUrl)
+	fetch(queryForecastURL)
 		.then(function (response2) {
 			console.log("the oneCall is working and mary is still great");
 			return response2.json();
@@ -112,20 +128,21 @@ function fetchWeather2() {
 			console.log(window.lonData);
 
 			//create <p> sections for the results and append results to the sections
-			//MARY WHY DONT YOU JUST MAKE A FOR LOOP FOR THESE?
+			//TODO: get the correct days instead of the times from the data
 			var day0 = document.createElement("p");
 			day0.setAttribute("class", "day0result");
 			day0.innerHTML =
-				"Tomorrow" +
+				"Tomorrow " +
+				data2.list[11].dt_txt +
 				"<br>" +
 				"Temp: " +
-				data2.list[0].main.temp +
+				data2.list[11].main.temp +
 				" F<br>" +
 				"Conditions: " +
-				data2.list[0].weather[0].description +
+				data2.list[11].weather[0].description +
 				"<br>" +
 				"Humidity: " +
-				data2.list[0].main.humidity +
+				data2.list[11].main.humidity +
 				"%<br>";
 			tomorrowResult.append(day0);
 
@@ -133,15 +150,16 @@ function fetchWeather2() {
 			day1.setAttribute("class", "day0result");
 			day1.innerHTML =
 				"Day 3" +
+				data2.list[19].dt_txt +
 				"<br>" +
 				"Temp: " +
-				data2.list[1].main.temp +
+				data2.list[19].main.temp +
 				" F<br>" +
 				"Conditions: " +
-				data2.list[1].weather[0].description +
+				data2.list[19].weather[0].description +
 				"<br>" +
 				"Humidity: " +
-				data2.list[1].main.humidity +
+				data2.list[19].main.humidity +
 				"%<br>";
 			day3result.append(day1);
 
@@ -149,15 +167,16 @@ function fetchWeather2() {
 			day2.setAttribute("class", "day0result");
 			day2.innerHTML =
 				"Day 4" +
+				data2.list[27].dt_txt +
 				"<br>" +
 				"Temp: " +
-				data2.list[2].main.temp +
+				data2.list[27].main.temp +
 				" F<br>" +
 				"Conditions: " +
-				data2.list[2].weather[0].description +
+				data2.list[27].weather[0].description +
 				"<br>" +
 				"Humidity: " +
-				data2.list[2].main.humidity +
+				data2.list[27].main.humidity +
 				"%<br>";
 			day4result.append(day2);
 
@@ -165,15 +184,16 @@ function fetchWeather2() {
 			day3.setAttribute("class", "day0result");
 			day3.innerHTML =
 				"Day 5" +
+				data2.list[35].dt_txt +
 				"<br>" +
 				"Temp: " +
-				data2.list[3].main.temp +
+				data2.list[35].main.temp +
 				" F<br>" +
 				"Conditions: " +
-				data2.list[3].weather[0].description +
+				data2.list[35].weather[0].description +
 				"<br>" +
 				"Humidity: " +
-				data2.list[3].main.humidity +
+				data2.list[35].main.humidity +
 				"%<br>";
 			day5result.append(day3);
 
@@ -181,15 +201,15 @@ function fetchWeather2() {
 			day4.setAttribute("class", "day0result");
 			day4.innerHTML =
 				"Day 6" +
+				data2.list[39].dt_txt +
 				"<br>" +
-				"Temp: " +
-				data2.list[4].main.temp +
+				data2.list[39].main.temp +
 				" F<br>" +
 				"Conditions: " +
-				data2.list[4].weather[0].description +
+				data2.list[39].weather[0].description +
 				"<br>" +
 				"Humidity: " +
-				data2.list[4].main.humidity +
+				data2.list[39].main.humidity +
 				"%<br>";
 			day6result.append(day4);
 		});
@@ -202,28 +222,3 @@ document.getElementById("search").addEventListener("click", function (event) {
 	fetchWeather1();
 	fetchWeather2();
 });
-
-// =================IGNORE BELOW ================
-
-//write an event listener and a query selector (the event listener will have a function inside of it) set a variable listening to that whole form
-// addEventListener("submit",function(){}
-
-// fetchWeatherObsolete();
-//TODO: make sure to look at https://openweathermap.org/api/one-call-api and at https://openweathermap.org/api/geocoding-api This fetch is here to pull lat/long info for teh city so that we can put that into fetchweather3call
-
-// function fetchWeatherObsolete() {
-// 	var city = document.getElementById("city").value;
-//   var geoLocation = "http://api.openweathermap.org/geo/1.0/direct?q=" + city +"&limit=3&appid=" + APIKey;
-
-// 		fetch(geoLocation)
-// 		.then(function (response) {
-// 			console.log(
-// 				"working on 5 day forecast function and also mary is awesome"
-// 			);
-// 			return response.json();
-// 		})
-// 		.then(function (data) {
-// 			console.log(data);
-
-// 		});
-// }
