@@ -129,20 +129,20 @@ function fetchWeather2() {
 
 			// console.log(data.daily[0]);
 			//MARY WHY DONT YOU JUST MAKE A FOR LOOP FOR THESE?
-			var day0 = document.createElement("textarea");
+			var day0 = document.createElement("p");
 			day0.setAttribute("class", "day0result");
-			day0.textContent =
+			day0.innerHTML =
 				"Tomorrow" +
-				"\n" +
+				"<br>" +
 				"Temp: " +
-				data.daily[0].temp.day +
-				" F\n" +
+				data2.daily[0].temp.day +
+				" F<br>" +
 				"Conditions: " +
-				data.daily[0].weather[0].description +
-				"\n" +
+				data2.daily[0].weather[0].description +
+				"<br>" +
 				"Humidity: " +
-				data.daily[0].humidity +
-				"%\n";
+				data2.daily[0].humidity +
+				"%<br>";
 			tomorrowResult.append(day0);
 
 			var day1 = document.createElement("textarea");
