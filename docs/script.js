@@ -105,7 +105,20 @@ function fetchWeather1() {
 			}
 			//if statement for undefined error handling
 			fetchWeather3();
-			currentWeatherResult.append("UV: " + window.uvi);
+			var UVNo = document.getElementsByName("uvInfo");
+			if (window.uvi === undefined) {
+			//TODO trying to set UV color classes - 
+			currentWeatherResult.append("UV: " + "UV Not Found")
+			UVNo.setAttribute ("class", "red");
+			}
+			// else
+			// currentWeatherResult.append("UV: " + window.uvi);
+			// iconImage = document.createElement("img");
+			// iconImage.setAttribute(
+			// 	"src",
+			// 	"http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
+			// );
+			// weatherIcon.append(iconImage);
 		});
 }
 
