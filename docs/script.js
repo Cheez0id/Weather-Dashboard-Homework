@@ -150,6 +150,13 @@ function fetchWeather2() {
 			//create <p> sections for the results and append results to the sections
 			//TODO: get the correct days instead of the times from the data
 			var day0 = document.createElement("p");
+			iconImage2 = document.createElement("img");
+			iconImage2.setAttribute(
+				"src",
+				"http://openweathermap.org/img/wn/" + data2.list[11].weather[0].icon + "@2x.png"
+			);
+			console.log (data2.list[11].weather[0].icon);
+			weatherIcon.append(iconImage);
 			day0.setAttribute("class", "day0result");
 			day0.innerHTML =
 				"Tomorrow " +
@@ -164,6 +171,7 @@ function fetchWeather2() {
 				"Humidity: " +
 				data2.list[11].main.humidity +
 				"%<br>";
+			tomorrowResult.append(iconImage2);
 			tomorrowResult.append(day0);
 
 			var day1 = document.createElement("p");
