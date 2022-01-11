@@ -111,7 +111,7 @@ function fetchWeather1() {
 			if (window.uvi === undefined) {
 			document.getElementById("uvInfo").classList.add('grey');
 			}
-			if (window.uvi === ["0","1","2"]) {
+			if (window.uvi === "0") {
 				document.getElementById("uvInfo").classList.add('green');	
 			}
 			if (window.uvi === ["3","4","5"]) {
