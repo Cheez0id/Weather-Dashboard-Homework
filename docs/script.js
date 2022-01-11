@@ -11,7 +11,7 @@ var day4result = document.getElementById("day4card");
 
 var coordHider = document.getElementById("invisibleData");
 var dayToday = moment().format("dddd, MMMM Do YYYY");
-var weatherIcon= document.querySelector(".weatherIcon");
+var weatherIcon = document.querySelector(".weatherIcon");
 
 // city.value="Atlanta";
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={APIkey}
@@ -36,8 +36,7 @@ function fetchWeather1() {
 				currentWeatherResult.append(queryError);
 			} else if (city === "") {
 				var queryError = document.createElement("p");
-				queryError.textContent =
-					"NO CITY SEARCHED.";
+				queryError.textContent = "NO CITY SEARCHED.";
 				currentWeatherResult.append(queryError);
 			}
 			return response.json();
@@ -45,17 +44,17 @@ function fetchWeather1() {
 		.then(function (data) {
 			var queryResult = document.createElement("p");
 			iconImage = document.createElement("img");
-			iconImage.setAttribute("src", "http://openweathermap.org/img/wn/"+ data.weather[0].icon + "@2x.png");
+			iconImage.setAttribute(
+				"src",
+				"http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
+			);
 			weatherIcon.append(iconImage);
 
 			nameData = data.name;
 			dateData = dayToday;
 			conditionIconData =
-				data.weather[0].main +
-				", " +
-				data.weather[0].description +
-				" " 
-				temperatureData = data.main.temp;
+				data.weather[0].main + ", " + data.weather[0].description + " ";
+			temperatureData = data.main.temp;
 			humidityData = data.main.humidity;
 			windSpeedData =
 				"Speed: " +
@@ -86,7 +85,8 @@ function fetchWeather1() {
 				"Humidity: " +
 				humidityData +
 				"%<br>" +
-				"Wind Conditions: " + "<br>" +
+				"Wind Conditions: " +
+				"<br>" +
 				windSpeedData +
 				"<br>" +
 				"UV: " +
@@ -98,11 +98,6 @@ function fetchWeather1() {
 			cityCoordinates = latData + "&lon=" + lonData;
 			localStorage.setItem("coordinates", cityCoordinates);
 			//new plan to make an element to pull form
-			var coordHolder = document.createElement("div");
-			coordHolder.setAttribute("class", "coordText");
-			coordHolder.textContent = latData + "&lon=" + lonData;
-			coordHider.append(coordHolder);
-			console.log(coordHider);
 		});
 }
 
@@ -116,7 +111,9 @@ function fetchWeather2() {
 	//TODO: Do I really have to make the lat/long 00.00 vs 00.0000??
 	//  placeholderCoord = "39.7392&lon=-104.9847";
 	var queryOneCallUrl =
-		"https://api.openweathermap.org/data/2.5/forecast?q=" +city+ "&appid="+
+		"https://api.openweathermap.org/data/2.5/forecast?q=" +
+		city +
+		"&appid=" +
 		APIKey2;
 	fetch(queryOneCallUrl)
 		.then(function (response2) {
@@ -125,7 +122,8 @@ function fetchWeather2() {
 		})
 		.then(function (data2) {
 			console.log(data2);
-			console.log(window.latData); console.log(window.lonData);
+			console.log(window.latData);
+			console.log(window.lonData);
 
 			// console.log(data.daily[0]);
 			//MARY WHY DONT YOU JUST MAKE A FOR LOOP FOR THESE?
@@ -135,95 +133,79 @@ function fetchWeather2() {
 				"Tomorrow" +
 				"<br>" +
 				"Temp: " +
-				data2.daily[0].temp.day +
+				data2.list[0].main.temp +
 				" F<br>" +
 				"Conditions: " +
-				data2.daily[0].weather[0].description +
+				data2.list[0].weather[0].description +
 				"<br>" +
 				"Humidity: " +
-				data2.daily[0].humidity +
+				data2.list[0].main.humidity +
 				"%<br>";
 			tomorrowResult.append(day0);
 
-			var day1 = document.createElement("textarea");
-			day1.setAttribute("class", "day1result");
-			day1.textContent =
-				"day after tomorrow: " +
-				"\n" +
+			var day1 = document.createElement("p");
+			day1.setAttribute("class", "day0result");
+			day1.innerHTML =
+				"Day 3" +
+				"<br>" +
 				"Temp: " +
-				data.daily[1].temp.day +
-				" F\n" +
+				data2.list[1].main.temp +
+				" F<br>" +
 				"Conditions: " +
-				data.daily[1].weather[0].description +
-				"\n" +
+				data2.list[1].weather[0].description +
+				"<br>" +
 				"Humidity: " +
-				data.daily[1].humidity +
-				"%\n";
+				data2.list[1].main.humidity +
+				"%<br>";
 			day1result.append(day1);
 
-			var day2 = document.createElement("textarea");
-			day2.setAttribute("class", "day1result");
-			day2.textContent =
-				"2nd day after tomorrow: " +
-				"\n" +
+			var day2 = document.createElement("p");
+			day2.setAttribute("class", "day0result");
+			day2.innerHTML =
+				"Day 4" +
+				"<br>" +
 				"Temp: " +
-				data.daily[2].temp.day +
-				" F\n" +
+				data2.list[2].main.temp +
+				" F<br>" +
 				"Conditions: " +
-				data.daily[2].weather[0].description +
-				"\n" +
+				data2.list[2].weather[0].description +
+				"<br>" +
 				"Humidity: " +
-				data.daily[2].humidity +
-				"%\n";
+				data2.list[2].main.humidity +
+				"%<br>";
 			day2result.append(day2);
 
-			var day3 = document.createElement("textarea");
-			day3.setAttribute("class", "day1result");
-			day3.textContent =
-				"3rd day after tomorrow: " +
-				"\n" +
+			var day3 = document.createElement("p");
+			day3.setAttribute("class", "day0result");
+			day3.innerHTML =
+				"Day 5" +
+				"<br>" +
 				"Temp: " +
-				data.daily[3].temp.day +
-				" F\n" +
+				data2.list[3].main.temp +
+				" F<br>" +
 				"Conditions: " +
-				data.daily[3].weather[0].description +
-				"\n" +
+				data2.list[3].weather[0].description +
+				"<br>" +
 				"Humidity: " +
-				data.daily[3].humidity +
-				"%\n";
+				data2.list[3].main.humidity +
+				"%<br>";
 			day3result.append(day3);
 
-			var day4 = document.createElement("textarea");
-			day4.setAttribute("class", "day1result");
-			day4.textContent =
-				"4th day after tomorrow: " +
-				"\n" +
+			var day4 = document.createElement("p");
+			day4.setAttribute("class", "day0result");
+			day4.innerHTML =
+				"Day 6" +
+				"<br>" +
 				"Temp: " +
-				data.daily[4].temp.day +
-				" F\n" +
+				data2.list[4].main.temp +
+				" F<br>" +
 				"Conditions: " +
-				data.daily[4].weather[0].description +
-				"\n" +
+				data2.list[4].weather[0].description +
+				"<br>" +
 				"Humidity: " +
-				data.daily[4].humidity +
-				"%\n";
+				data2.list[4].main.humidity +
+				"%<br>";
 			day4result.append(day4);
-
-			var day5 = document.createElement("textarea");
-			day5.setAttribute("class", "day1result");
-			day5.textContent =
-				"5th day after tomorrow: " +
-				"\n" +
-				"Temp: " +
-				data.daily[5].temp.day +
-				" F\n" +
-				"Conditions: " +
-				data.daily[5].weather[0].description +
-				"\n" +
-				"Humidity: " +
-				data.daily[5].humidity +
-				"%\n";
-			day5result.append(day5);
 		});
 }
 
