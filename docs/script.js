@@ -113,6 +113,7 @@ function fetchWeather1() {
 			if (window.uvi === undefined) {
 			//TODO trying to set UV color classes - 
 			document.getElementById("uvInfo").classList.add('grey');
+			//the class is being added, but why is the color not changing? perhaps the page needs to refresh
 		console.log (hello);
 			}
 			// else
