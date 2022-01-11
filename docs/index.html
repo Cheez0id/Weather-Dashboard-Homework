@@ -22,13 +22,15 @@
 			<header class="text-5xl px-6 pt-10 pb-8 shadow-xl sm:max-w-3xl sm:mx-auto  my-7 centerText  text-violet-200">
 				<h1>Weather Dashboard</h1>
 			</header>
+
+
 		</div>
 <!-- PAGE ELEMENTS -->
 <!-- Search and Results -->
-		<div class="flex flex-wrap w-5/6 px-6 py-10 bg-teal-50 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:rounded-lg sm:px-10 text-violet-600 mx-5 my-5">
+		<div class="flex flex-wrap w-5/6 px-6 py-10 bg-teal-50 shadow-xl ring-gray-900/5 sm:mx-auto sm:rounded-lg sm:px-10 text-violet-600 mx-5 my-5">
 			<div class="box w-1/4">
 				<div class="text-3xl">
-					<h1>Search by City</h1>
+					<h1 class="text-4xl px-6 pt-10 pb-8 sm:max-w-3xl centerText text-violet-800">Search by City Name</h1>
 				</div>
 				<form id="searchForm">
 					<label for="City"></label>
@@ -39,8 +41,12 @@
 					<button id="clear" class="bg-teal-400 hover:bg-teal-300 text-white font-bold py-2 px-4 rounded shadow-xl">Clear</button>
 				</form>
 				</div>
+<!-- current weather search results -->
 
 			<div id="currentWeather" class="box w-3/5">
+				<section class="weatherIcon">
+					<h2 class="text-4xl pt-10 text-violet-800">Current Weather Data</h2>
+				</section>
 			</div>
 			</div>
 <!-- previous searches and Weather Cards -->
