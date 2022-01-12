@@ -314,7 +314,9 @@ document.getElementById("search").addEventListener("click", function (event) {
 	storeName();
 });
 
-// //clear button works for local storage too
-// document.getElementById("clearPrevious").addEventListener("click", function () {
-// 	localStorage.setItem("city",[]);
-// });
+//clear button works for local storage too
+document.getElementById("clear").addEventListener("click", function (event) {
+	event.preventDefault();
+	console.log("you cleared the form");
+	
+});
