@@ -139,15 +139,16 @@ function fetchWeather1() {
 		cityArray.push(cityName);
 		localStorage.setItem("city",JSON.stringify(cityArray));
 		
-		//creates a object to put in the searchbox
-		createButton = document.createElement("li");
-		createButton.setAttribute("class","previous");
+
 		//get the data from local storage and append object
 		
 		for (var i=0; i < cityArray.length; i++){
 			console.log(cityArray);
 			console.log(cityArray[i]);
 			console.log(cityArray[0]);
+					//creates a object to put in the searchbox
+		createButton = document.createElement("li");
+		createButton.setAttribute("class","previous");
 		createButton.innerHTML = cityArray[i];
 		document.getElementById("searchBox").append(createButton);
 	}
