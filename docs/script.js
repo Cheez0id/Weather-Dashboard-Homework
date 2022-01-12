@@ -306,6 +306,6 @@ document.getElementById("search").addEventListener("click", function (event) {
 });
 
 //clear button works for local storage too
-document.getElementById("clear").addEventListener("click", function () {
-	localStorage.setItem();
+document.getElementById("clearPrevious").addEventListener("click", function () {
+	localStorage.setItem("city",[]);
 });
