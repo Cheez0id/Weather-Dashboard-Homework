@@ -41,7 +41,7 @@ function fetchWeather1() {
 		.then(function (data) {
 			//create a <p> section for the results and append results to section
 			var queryResult = document.createElement("p");
-			
+
 			iconImage = document.createElement("img");
 			iconImage.setAttribute(
 				"src",
@@ -108,27 +108,33 @@ function fetchWeather1() {
 			fetchWeather3();
 			//if statement for undefined error handling
 			if (window.uvi === undefined) {
-					currentWeatherResult.append("UV: " + "UV Not Found");
+				currentWeatherResult.append("UV: " + "UV Not Found");
 			}
 			if (window.uvi === undefined) {
-			document.getElementById("uvInfo").classList.add('grey');
+				document.getElementById("uvInfo").classList.add("grey");
 			}
 			if (window.uvi === "0") {
-				document.getElementById("uvInfo").classList.add('green');	
+				document.getElementById("uvInfo").classList.add("green");
 			}
-			if (window.uvi === ["3","4","5"]) {
-				document.getElementById("uvInfo").classList.add('yellow');	
+			if (window.uvi === ["3", "4", "5"]) {
+				document.getElementById("uvInfo").classList.add("yellow");
 			}
-			if (window.uvi === ["6","7"]) {
-				document.getElementById("uvInfo").classList.add('orange');	
+			if (window.uvi === ["6", "7"]) {
+				document.getElementById("uvInfo").classList.add("orange");
 			}
-			if (window.uvi === ["8","9","10"]) {
-				document.getElementById("uvInfo").classList.add('red');	
+			if (window.uvi === ["8", "9", "10"]) {
+				document.getElementById("uvInfo").classList.add("red");
 			}
-			if (window.uvi === ["11","12","13"]) {
-				document.getElementById("uvInfo").classList.add('black');	
+			if (window.uvi === ["11", "12", "13"]) {
+				document.getElementById("uvInfo").classList.add("black");
 			}
 		});
+		
+		const storeName = () =>{
+			let city = document.getElementById("city").value;
+			console.log(city);
+		}
+		storeName();
 }
 
 //A function to get 5 day forecast
@@ -136,7 +142,8 @@ function fetchWeather2() {
 	var city = document.getElementById("city").value;
 	var queryForecastURL =
 		"https://api.openweathermap.org/data/2.5/forecast?q=" +
-		city +"&units=imperial"+
+		city +
+		"&units=imperial" +
 		"&appid=" +
 		APIKey2;
 	fetch(queryForecastURL)
@@ -159,26 +166,35 @@ function fetchWeather2() {
 			iconImage6 = document.createElement("img");
 			iconImage2.setAttribute(
 				"src",
-				"http://openweathermap.org/img/wn/" + data2.list[11].weather[0].icon + "@2x.png"
+				"http://openweathermap.org/img/wn/" +
+					data2.list[11].weather[0].icon +
+					"@2x.png"
 			);
 			iconImage3.setAttribute(
 				"src",
-				"http://openweathermap.org/img/wn/" + data2.list[19].weather[0].icon + "@2x.png"
+				"http://openweathermap.org/img/wn/" +
+					data2.list[19].weather[0].icon +
+					"@2x.png"
 			);
 			iconImage4.setAttribute(
 				"src",
-				"http://openweathermap.org/img/wn/" + data2.list[27].weather[0].icon + "@2x.png"
+				"http://openweathermap.org/img/wn/" +
+					data2.list[27].weather[0].icon +
+					"@2x.png"
 			);
 			iconImage5.setAttribute(
 				"src",
-				"http://openweathermap.org/img/wn/" + data2.list[35].weather[0].icon + "@2x.png"
+				"http://openweathermap.org/img/wn/" +
+					data2.list[35].weather[0].icon +
+					"@2x.png"
 			);
 			iconImage6.setAttribute(
 				"src",
-				"http://openweathermap.org/img/wn/" + data2.list[29].weather[0].icon + "@2x.png"
+				"http://openweathermap.org/img/wn/" +
+					data2.list[29].weather[0].icon +
+					"@2x.png"
 			);
-			console.log (data2.list[11].weather[0].icon);
-			weatherIcon.append(iconImage);
+			console.log(data2.list[11].weather[0].icon);
 			day0.setAttribute("class", "day0result");
 			day0.innerHTML =
 				"Tomorrow " +
@@ -213,7 +229,6 @@ function fetchWeather2() {
 				"%<br>";
 			day3result.append(iconImage3);
 			day3result.append(day1);
-			
 
 			var day2 = document.createElement("p");
 			day2.setAttribute("class", "day0result");
@@ -269,6 +284,9 @@ function fetchWeather2() {
 			day6result.append(day4);
 		});
 }
+
+
+
 
 //Added a search Button to run the function on click
 document.getElementById("search").addEventListener("click", function (event) {
