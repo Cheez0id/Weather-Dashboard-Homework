@@ -128,25 +128,31 @@ function fetchWeather1() {
 			if (window.uvi === ["11", "12", "13"]) {
 				document.getElementById("uvInfo").classList.add("black");
 			}
-		});
-}
+		});	
+	}
 
-//A Function for local storage feature
-var storeName = () => {
-	var cityName = document.getElementById("city").value;
-	console.log(cityName);
-	var cityArray = JSON.parse(localStorage.getItem("city")) || [];
-	cityArray.push(cityName);
-	localStorage.setItem("city", JSON.stringify(cityArray));
-
+	//working on local storage feature
+	var storeName = () =>{
+		var cityName = document.getElementById("city").value;
+		console.log(cityName)
+		var cityArray = JSON.parse(localStorage.getItem("city"))||[];
+		cityArray.push(cityName);
+		localStorage.setItem("city",JSON.stringify(cityArray));
+		
+		//creates a object to put in the searchbox
+		createButton = document.createElement("li");
+		createButton.setAttribute("class","previous");
+		//get the data from local storage and append object
+		
+		for (var i=0; i < cityArray.length; i++){
+			console.log(cityArray);
+			console.log(cityArray[i]);
+			console.log(cityArray[0]);
+		createButton.innerHTML = cityArray[i];
+		document.getElementById("searchBox").append(createButton);
+	}
+		}
 	
-	createButton = document.createElement("li");
-	createButton.setAttribute("class", "previous");
-	
-	//get the data from local storage and append object
-	createButton.innerHTML = JSON.parse(localStorage.getItem("city"));
-	document.getElementById("searchBox").append(createButton);
-};
 
 //A function to get 5 day forecast
 function fetchWeather2() {
@@ -296,6 +302,9 @@ function fetchWeather2() {
 		});
 }
 
+
+
+
 //Added a search Button to run the function on click
 document.getElementById("search").addEventListener("click", function (event) {
 	event.preventDefault();
@@ -305,7 +314,7 @@ document.getElementById("search").addEventListener("click", function (event) {
 	storeName();
 });
 
-//clear button works for local storage too
-document.getElementById("clearPrevious").addEventListener("click", function () {
-	localStorage.setItem("city",[]);
-});
+// //clear button works for local storage too
+// document.getElementById("clearPrevious").addEventListener("click", function () {
+// 	localStorage.setItem("city",[]);
+// });
