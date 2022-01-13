@@ -319,5 +319,6 @@ document.getElementById("search").addEventListener("click", function (event) {
 document.getElementById("clear").addEventListener("click", function (event) {
 	event.preventDefault();
 	console.log("you cleared the form");
+	location.reload();
 	
 });
