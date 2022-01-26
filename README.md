@@ -1,6 +1,8 @@
 # Weather-Dashboard-Homework
-January 5 2021 test note
-this is a new note to test as well
+Deployed App
+https://cheez0id.github.io/Weather-Dashboard-Homework/
+
+![Screenshot](https://raw.githubusercontent.com/Cheez0id/Weather-Dashboard-Homework/main/assets/wdb.JPG)
 
 ## Homework
 Create a browser app weather dashboard using third-party APIs to complete below acceptance criteria.
